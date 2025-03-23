@@ -2,12 +2,19 @@
 
 ## Overview
 
-This project implements a mathematical operations service using a parent-child process architecture with STDIO communication. 
-It integrates with GPT-4 for natural language processing of mathematical queries.
+This project provides a mathematical operations service leveraging a parent-child process architecture with STDIO-based
+communication.
+It integrates GPT-4 to interpret and process natural language mathematical queries, enabling seamless interaction and
+accurate computations.
 
 ## Links
 - [LangChain MCP Adapter](https://github.com/langchain-ai/langchain-mcp-adapters)
 - [FastMCP](https://github.com/jlowin/fastmcp)
+
+## Run
+```bash
+  python langchain-mcp-adapter/client.py
+```
 
 ## Components
 
