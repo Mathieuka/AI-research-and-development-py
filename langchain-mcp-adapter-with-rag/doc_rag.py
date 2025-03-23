@@ -28,12 +28,10 @@ vector_store = InMemoryVectorStore(embeddings)
 def initialize_vector_store(pdf_name: str = "cv.pdf"):
     # Get the current file's directory
     current_dir = Path(__file__).parent.resolve()
-
-    # Construct the path to the private directory
     private_dir = current_dir / "private"
     pdf_path = private_dir / pdf_name
     logger.info(f"Loading PDF from: {pdf_path}")
-    # Verify the file exists
+
     if not pdf_path.exists():
         raise FileNotFoundError(f"PDF file not found at: {pdf_path}")
 
@@ -54,12 +52,12 @@ def search_cv(question: str, k: Optional[int] = 3) -> str:
     Returns:
         str: Relevant content from the CV
     """
-    # initialize_vector_store()
     logger.info(f"Searching CV for: {question}")
     try:
         docs = vector_store.similarity_search(question, k=k)
         relevant_content = "\n\n".join(doc.page_content for doc in docs)
         logger.info("CV content retrieved successfully")
+
         return relevant_content
     except Exception as e:
         logger.error(f"Error in search_cv: {e}")
