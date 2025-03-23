@@ -1,6 +1,5 @@
 # Create server parameters for stdio connection
 import asyncio
-from pprint import pprint
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -18,7 +17,6 @@ model = ChatOpenAI(model="gpt-4o")
 
 server_params = StdioServerParameters(
     command="python",
-    # Make sure to update to the full absolute path to your math_server.py file
     args=["langchain-mcp-adapter/math_server.py"],
 )
 

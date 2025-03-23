@@ -3,17 +3,13 @@ import logging
 
 mcp = FastMCP("Math")
 
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.DEBUG)
-logging.getLogger().addHandler(console_handler)
-
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     force=True,
 )
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("math_server")
 
 
 @mcp.tool()
