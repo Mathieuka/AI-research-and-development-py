@@ -8,7 +8,7 @@ class Resume(BaseModel):
 
 
 class AnalysisUseCase(Protocol):
-    def perform_analysis(self, resume: str) -> str: ...
+    async def perform_analysis(self, resume: str) -> str: ...
 
 
 class AnalysisController:
@@ -27,7 +27,9 @@ class AnalysisController:
         return "Hello World"
 
     async def perform_analysis(self, payload: Resume) -> str:
-        return self.analysis_use_case.perform_analysis(payload.resume)
+        response = await self.analysis_use_case.perform_analysis(payload.resume)
+
+        return response
 
     def get_router(self) -> APIRouter:
         return self.router
