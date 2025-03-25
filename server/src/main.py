@@ -1,13 +1,15 @@
 from fastapi import FastAPI
-from infrastructure.controllers.user.user_controller import router as user_router
+from infrastructure.controllers.analysis.analysis_controller import (
+    router as user_router,
+)
 
 app = FastAPI(
     title="FastAPI",
-    description="This API provides endpoints for interacting with an agent, "
-    "allowing users to perform various operations.",
+    description="This API offers endpoints for interacting with an agent and performing various analysis operations on resumes.",
     version="0.1.0",
     docs_url="/",
 )
+
 app.include_router(user_router)
 
 
