@@ -17,6 +17,3 @@ dependencies = [
     "pytest>=8.3.5",
     "python-dotenv>=1.0.1",
 ]
-#[tool.mypy]
-#python_version = "3.12"
-##mypy_path = ["server/src"]
