@@ -16,7 +16,7 @@ async def hello():
 
 @router.post("/answer", tags=["Agent"])
 async def ask(question: Question):
-    return {question: question.text}
+    return {"response": question.text}
 
 
 # @router.get("/calculate/{payload}")
