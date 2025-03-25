@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from infrastructure.controllers.analysis.analysis_controller import (
-    router as user_router,
+    AnalysisController,
 )
+from application.usecases.analyse_useCase import AnalysisUseCaseImpl
+
+analysis_controller = AnalysisController(AnalysisUseCaseImpl())
 
 app = FastAPI(
     title="FastAPI",
@@ -10,7 +13,7 @@ app = FastAPI(
     docs_url="/",
 )
 
-app.include_router(user_router)
+app.include_router(analysis_controller.get_router())
 
 
 @app.get("/health", tags=["Health"])
