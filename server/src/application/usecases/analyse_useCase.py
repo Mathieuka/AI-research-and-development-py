@@ -1,4 +1,8 @@
-class AnalysisUseCaseImpl:
+import asyncio
 
-    def perform_analysis(self, resume: str):
-        return "Analysis performed successfully"
+
+class AnalysisUseCaseImpl:
+    async def perform_analysis(self, resume: str):
+        resolve: asyncio.Future = asyncio.Future()
+        resolve.set_result("Analysis performed successfully")
+        return await resolve
