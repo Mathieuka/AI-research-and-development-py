@@ -1,14 +1,24 @@
-from typing import Union
+# from typing import Union
 from fastapi import APIRouter
+from pydantic import BaseModel
 
 router = APIRouter()
 
 
-@router.get("/users")
-async def read_users():
-    return {"Hello": "User"}
+class Question(BaseModel):
+    text: str
 
 
-@router.get("/users/{user_id}")
-async def read_user(user_id: int, q: Union[str, None] = None):
-    return {"item_id": user_id, "q": q}
+@router.get("/hello", tags=["Agent"])
+async def hello():
+    return "Hello World"
+
+
+@router.post("/answer", tags=["Agent"])
+async def ask(question: Question):
+    return {question: question.text}
+
+
+# @router.get("/calculate/{payload}")
+# async def read_user(payload: str, q: Union[str, None] = None):
+#     return {"payload": payload, "q": q}
