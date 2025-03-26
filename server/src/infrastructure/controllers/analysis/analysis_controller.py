@@ -7,13 +7,13 @@ class Resume(BaseModel):
     resume: str
 
 
-class AnalysisUseCase(Protocol):
+class IAnalysisUseCase(Protocol):
     async def perform_analysis(self, resume: str) -> str: ...
 
 
 class AnalysisController:
 
-    def __init__(self, analysis_use_case: AnalysisUseCase):
+    def __init__(self, analysis_use_case: IAnalysisUseCase):
         self.analysis_use_case = analysis_use_case
         self.router = APIRouter(tags=["Agent"])
 

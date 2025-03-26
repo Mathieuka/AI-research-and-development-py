@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from infrastructure.controllers.analysis.analysis_controller import (
     AnalysisController,
 )
-from application.usecases.analyse_useCase import AnalysisUseCaseImpl
+from application.usecases.analyse_useCase import AnalysisUseCase
 
-analysis_controller = AnalysisController(AnalysisUseCaseImpl())
+analysis_controller = AnalysisController(AnalysisUseCase())
 
 app = FastAPI(
     title="FastAPI",
