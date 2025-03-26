@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from infrastructure.controllers.analysis.analysis_controller import (
+from server.src.infrastructure.controllers.analysis.analysis_controller import (
     AnalysisController,
 )
-from application.usecases.analyse_useCase import AnalysisUseCase
+from server.src.application.usecases.analyse_useCase import AnalysisUseCase
 
 analysis_controller = AnalysisController(AnalysisUseCase())
 
