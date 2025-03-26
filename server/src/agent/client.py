@@ -83,6 +83,6 @@ async def agent_execute():
             """
 
             agent_response = await agent.ainvoke({"messages": test_question})
-            print(agent_response["messages"][-1].content)
+            print("RESULT " + agent_response["messages"][-1].content)
 
             return agent_response["messages"][-1].content

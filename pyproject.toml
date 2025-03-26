@@ -1,5 +1,14 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["server.src"]
+include = ["server/src/**/*"]
+exclude = ["tests/", "**/__pycache__"]
+
 [project]
-name = "research-and-development-py"
+name = "research_and_development_py"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -17,3 +26,4 @@ dependencies = [
     "pytest>=8.3.5",
     "python-dotenv>=1.0.1",
 ]
+
