@@ -26,8 +26,8 @@ rag_server_params = StdioServerParameters(
 )
 
 class Agent:
-    async def execute(self, arg) -> str:
-        print("arg " + arg)
+    async def execute(self, resume) -> str:
+        print("Resume " + resume)
         async with (
             stdio_client(server_params) as (math_read, math_write),
             stdio_client(rag_server_params) as (rag_read, rag_write),

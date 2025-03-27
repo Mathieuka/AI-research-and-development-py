@@ -7,7 +7,7 @@ class Resume(BaseModel):
     resume: str
 
 class IAnalysisUseCase(Protocol):
-    async def perform_analysis(self, resume: Resume, agent) -> str: ...
+    async def perform_analysis(self, resume: Resume, agent: Agent) -> str: ...
 
 
 class PerformAnalysisController:
@@ -31,9 +31,7 @@ class PerformAnalysisController:
         if resume is None:
             resume = Resume(resume="Default CV")
 
-        response = await self.perform_analysis_use_case.perform_analysis(resume, self.agent)
-
-        return response
+        return await self.perform_analysis_use_case.perform_analysis(resume, self.agent)
 
     def get_router(self) -> APIRouter:
         return self.router
