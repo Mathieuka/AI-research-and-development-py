@@ -3,6 +3,5 @@ from server.src.infrastructure.controllers.perform_analysis.perform_analysis_con
 class PerformAnalysisUseCase:
 
     async def perform_analysis(self, resume: Resume, agent) -> str:
-        print("resume " + resume.resume)
-        response = await agent.execute(resume.resume)
+        response = await agent.execute(resume.text)
         return response

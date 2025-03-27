@@ -4,7 +4,7 @@ from server.src.infrastructure.agent.client import Agent
 from pydantic import BaseModel
 
 class Resume(BaseModel):
-    resume: str
+    text: str
 
 class IAnalysisUseCase(Protocol):
     async def perform_analysis(self, resume: Resume, agent: Agent) -> str: ...
