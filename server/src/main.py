@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from server.src.infrastructure.controllers import AnalysisController
+from server.src.infrastructure.controllers import PerformAnalysisController
+from server.src.application.usecases import PerformAnalysisUseCase
+from server.src.infrastructure.agent.client import Agent
 
-from server.src.application.usecases import AnalysisUseCase
-
-analysis_controller = AnalysisController(AnalysisUseCase())
+analysis_controller = PerformAnalysisController(PerformAnalysisUseCase(), Agent())
 
 app = FastAPI(
     title="FastAPI",
