@@ -27,10 +27,7 @@ class PerformAnalysisController:
     async def hello(self):
         return "Hello World"
 
-    async def perform_analysis(self, resume: Resume | None) -> str:
-        if resume is None:
-            resume = Resume(resume="Default CV")
-
+    async def perform_analysis(self, resume: Resume) -> str:
         return await self.perform_analysis_use_case.perform_analysis(resume, self.agent)
 
     def get_router(self) -> APIRouter:
