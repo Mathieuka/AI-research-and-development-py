@@ -1,12 +1,3 @@
-[build-system]
-requires = ["hatchling>=1.18"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["server.src"]
-include = ["server/src/**/*"]
-exclude = ["tests/", "**/__pycache__"]
-
 [project]
 name = "research_and_development_py"
 version = "0.1.0"
