@@ -17,15 +17,9 @@ class PerformAnalysisController:
         self.router = APIRouter(tags=["Agent"])
         self.agent = agent
 
-        # Add routes
-        self.router.add_api_route("/hello", self.hello, methods=["GET"])
         self.router.add_api_route(
             "/perform-analysis", self.perform_analysis, methods=["POST"]
         )
-
-
-    async def hello(self):
-        return "Hello World"
 
     async def perform_analysis(self, resume: Resume) -> str:
         return await self.perform_analysis_use_case.perform_analysis(resume, self.agent)
