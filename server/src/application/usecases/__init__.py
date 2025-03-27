@@ -1,1 +1,1 @@
-from server.src.application.usecases.analyse_useCase import AnalysisUseCase
+from server.src.application.usecases.perform_analysis_useCase import PerformAnalysisUseCase

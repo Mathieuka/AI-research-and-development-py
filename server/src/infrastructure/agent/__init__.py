@@ -1,1 +1,1 @@
-from server.src.infrastructure.agent.client import agent_execute
+from server.src.infrastructure.agent.client import Agent

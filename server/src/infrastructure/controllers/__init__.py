@@ -1,3 +1,3 @@
-from server.src.infrastructure.controllers.analysis.analysis_controller import (
-    AnalysisController,
+from server.src.infrastructure.controllers.perform_analysis.perform_analysis_controller import (
+    PerformAnalysisController,
 )
