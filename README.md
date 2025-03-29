@@ -15,8 +15,9 @@ This project serves as a dynamic sandbox for testing and implementing innovative
 
 The project includes:
 
-- `langchain-mcp-adapter`: A module for integrating LangChain and MCP to enable advanced AI experiments and workflows.
-- `langchain-mcp-adapter-with-rag`: A module for integrating LangChain and MCP to enable advanced AI experiments and workflows with Retrieval-Augmented Generation.
+- `server`: A FastAPI-based server for interacting with an agent and performing various analysis operations on resumes.
+- `langchain-mcp-adapter`: A module to integrating LangChain and MCP to enable advanced AI experiments and workflows.
+- `langchain-mcp-adapter-with-rag`: A module to integrating LangChain and MCP to enable advanced AI experiments and workflows with Retrieval-Augmented Generation.
 
 ## Getting Started
 
