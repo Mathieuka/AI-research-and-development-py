@@ -1,5 +1,5 @@
 # https://github.com/timescale/pgai/blob/main/docs/vectorizer/quick-start.md
-name: pgai
+name: resume-analysis-pgai
 services:
   dev:
     image: timescale/timescaledb-ha:pg17
