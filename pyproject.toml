@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "black>=25.1.0",
     "fastapi[standard]>=0.115.12",
     "fastmcp>=0.4.1",
     "langchain-community>=0.3.20",
@@ -16,6 +17,7 @@ dependencies = [
     "pypdf>=5.4.0",
     "pytest>=8.3.5",
     "python-dotenv>=1.0.1",
+    "sqlmodel>=0.0.24",
 ]
 [tool.mypy]
 python_version = "3.13"
