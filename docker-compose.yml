@@ -1,0 +1,44 @@
+# https://github.com/timescale/pgai/blob/main/docs/vectorizer/quick-start.md
+name: pgai
+services:
+  dev:
+    image: timescale/timescaledb-ha:pg17
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: db-pgai
+    ports:
+      - "5434:5432"
+    volumes:
+      - db-pgai:/home/postgres/pgdata/data
+  vectorizer-worker:
+    image: timescale/pgai-vectorizer-worker:latest
+    environment:
+      PGAI_VECTORIZER_WORKER_DB_URL: postgres://postgres:postgres@dev:5432/db-pgai
+      OLLAMA_HOST: http://ollama:11434
+    command: [ "--poll-interval", "5s" ]
+
+  test:
+    image: timescale/timescaledb-ha:pg17
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: db-pgai-test
+    ports:
+      - "5435:5432"
+    volumes:
+      - db-pgai-test:/home/postgres/pgdata/data
+  test-vectorizer-worker:
+    image: timescale/pgai-vectorizer-worker:latest
+    environment:
+      PGAI_VECTORIZER_WORKER_DB_URL: postgres://postgres:postgres@test:5432/db-pgai-test
+      OLLAMA_HOST: http://ollama:11434
+    command: [ "--poll-interval", "5s" ]
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+volumes:
+  db-pgai:
+  db-pgai-test:
